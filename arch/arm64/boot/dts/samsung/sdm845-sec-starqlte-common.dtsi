@@ -470,14 +470,6 @@
 &firmware {
 	android {
 		fstab {
-			odm {
-				compatible = "android,odm";
-				/* dev = "/dev/block/bootdevice/by-name/odm"; */
-				dev = "/dev/block/platform/soc/1d84000.ufshc/by-name/odm";
-				type = "ext4";
-				mnt_flags = "ro,errors=panic";
-				fsmgr_flags = "wait";
-			};
 			system {
 				compatible = "android,system";
 				/* dev = "/dev/block/bootdevice/by-name/system"; */
