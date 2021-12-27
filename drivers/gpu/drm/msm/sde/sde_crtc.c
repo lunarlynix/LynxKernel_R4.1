@@ -2375,16 +2375,14 @@ void sde_crtc_complete_flip(struct drm_crtc *crtc,
 	 * preclose on file that requested flip, then send the
 	 * event:
 	 */
-	pr_err("page-flip-debug: %s: ++ event=%p\n", __func__, event);
 	if (!file || (event->base.file_priv == file)) {
 		sde_crtc->event = NULL;
 		DRM_DEBUG_VBL("%s: send event: %pK\n",
 					sde_crtc->name, event);
 		SDE_EVT32_VERBOSE(DRMID(crtc));
-		pr_err("page-flip-debug: %s: crtc-name=%s event=%p\n",
-			__func__, sde_crtc->name, event);
 		drm_crtc_send_vblank_event(crtc, event);
- 	}
+	}
+
 end:
 	spin_unlock_irqrestore(&dev->event_lock, flags);
 }
@@ -3785,7 +3783,6 @@ void sde_crtc_commit_kickoff(struct drm_crtc *crtc,
 	bool is_error, reset_req;
 	unsigned long flags;
 	enum sde_crtc_idle_pc_state idle_pc_state;
-	unsigned long flags;
 
 	if (!crtc) {
 		SDE_ERROR("invalid argument\n");

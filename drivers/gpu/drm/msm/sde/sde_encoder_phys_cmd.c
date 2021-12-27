@@ -1272,6 +1272,7 @@ static int _sde_encoder_phys_cmd_wait_for_ctl_start(
 				&phys_enc->pending_ctlstart_cnt, -1, 0);
 			atomic_inc_return(&phys_enc->ctlstart_timeout);
 		ret = -EINVAL;
+		}
 	}
 
 	return ret;
